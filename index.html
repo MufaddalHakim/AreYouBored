@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            AreYouBored
+        </title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+    <body>
+        <div id="d1">
+            <button id="btn1">I am bored</button>
+        </div>        
+        <div id="desc"></div>
+    </body>
+    <script>
+        btn = document.getElementById("btn1");
+        desc1 = document.getElementById("desc");        
+        btn.addEventListener("click", function() {            
+            async function fetchData() {
+                const data = await fetch("https://www.boredapi.com/api/activity/")
+                .then(res => res.json()); 
+                desc.innerHTML = data.activity;                
+            }
+            fetchData();
+        });
+    </script>
+</html>
